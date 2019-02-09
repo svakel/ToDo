@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 
-const ToDoItem = (props: {todo: string}) : any => {
+
+interface ToDoRow {
+    content: string;
+}
+
+const ToDoItem = (props: ToDoRow) : any => {
     return (
-        <p>{props.todo}</p>
+        <li>{props.content}</li>
     );
 }
 
