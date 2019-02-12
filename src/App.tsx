@@ -3,13 +3,20 @@ import { FormEvent } from 'react';
 import ToDoList from './components/ToDoList'
 import './App.css';
 
+
+
+// type ToDo = {
+//   id: number;
+//   content?: string;
+// }
+
 interface IState {
-  newItem?: string,
-  items?: any
-};
+  newItem?: string;
+  items?: String[];
+}
 
 
-class App extends Component<IState> {
+class App extends Component <IState> {
   state: IState = {
     newItem: '',
     items: []
@@ -26,19 +33,29 @@ class App extends Component<IState> {
 
   addItem (e: FormEvent<any>) {
     e.preventDefault()
-    const todoObject: any = {
-      content: this.state.newItem,
-      id: this.state.items.length + 1
-    }
-    const items: [] = this.state.items.concat(todoObject)
-    console.log(items)
+    
+    console.log (this.state.items)
 
     this.setState({
-      items: items,
-      newItem: ''
-    })
+      newItem: '',
+      items: [...this.state.items, this.state.newItem]  
+    });
 
-    console.log (items);
+    
+    
+    // const todoObject = {
+    //   id: this.state.items.length + 1,
+    //   content: this.state.newItem,
+    // }
+    // const items = this.state.items.concat(todoObject)
+    // console.log(items)
+
+    // this.setState({
+    //   items: items,
+    //   newItem: ''
+    // })
+
+    
 
   }
 
