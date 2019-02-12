@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import ToDoItem from './ToDoItem';
 
-class ToDoList extends Component {
+const ToDoList = (props: any) => {
+    const { items } = props;
 
-    render() {
         return (
             <div>
-                <ToDoItem todo='Ensimmäinen homma'/>
-
+                <ul>
+                    {items.map((item: any, key: string) => <ToDoItem key={item.id} todo={item}/>)}
+                {/* <ToDoItem todo='Ensimmäinen homma'/> */}
+                </ul>
             </div>
         );
-    }
 }
 
 export default ToDoList;

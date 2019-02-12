@@ -3,18 +3,18 @@ import { FormEvent } from 'react';
 import ToDoList from './components/ToDoList'
 import './App.css';
 
-interface ItemState {
+interface IState {
   newItem?: string,
   items?: any
 };
 
 
-class App extends Component<ItemState> {
-  state: ItemState = {
+class App extends Component<IState> {
+  state: IState = {
     newItem: '',
     items: []
   };
-  constructor(props: ItemState) {
+  constructor(props: IState) {
     super(props);
     this.handleInput = this.handleInput.bind(this);
     this.addItem = this.addItem.bind(this);
@@ -27,9 +27,11 @@ class App extends Component<ItemState> {
   addItem (e: FormEvent<any>) {
     e.preventDefault()
     const todoObject: any = {
-      content: this.state.newItem
+      content: this.state.newItem,
+      id: this.state.items.length + 1
     }
-    const items: any = this.state.items.concat(todoObject)
+    const items: [] = this.state.items.concat(todoObject)
+    console.log(items)
 
     this.setState({
       items: items,
@@ -60,7 +62,7 @@ class App extends Component<ItemState> {
         <button type="submit">Lisää tehtävä</button>
       </form>
 
-        <ToDoList />
+        <ToDoList items={this.state.items} />
 
         
       </div>

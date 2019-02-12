@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 const ToDoItem = (props: {todo: string}) : any => {
     return (
-        <p>{props.todo}</p>
+        <li>{props.todo}</li>
     );
 }
 
