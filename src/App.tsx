@@ -4,7 +4,6 @@ import ToDoList from './components/ToDoList'
 import './App.css';
 
 
-
 // type ToDo = {
 //   id: number;
 //   content?: string;
@@ -14,7 +13,6 @@ interface IState {
   newItem?: string;
   items?: String[];
 }
-
 
 class App extends Component <IState> {
   state: IState = {
@@ -42,7 +40,6 @@ class App extends Component <IState> {
     });
 
     
-    
     // const todoObject = {
     //   id: this.state.items.length + 1,
     //   content: this.state.newItem,
@@ -54,9 +51,6 @@ class App extends Component <IState> {
     //   items: items,
     //   newItem: ''
     // })
-
-    
-
   }
 
   handleInput (e: React.ChangeEvent<HTMLInputElement>) {
@@ -70,19 +64,25 @@ class App extends Component <IState> {
     const newItem = this.state.newItem;
     return (
       <div className="App">
-
-      <form onSubmit={this.addItem}>
-        <input
-          value={newItem}
-          onChange={this.handleInput} 
-          />
-        <button type="submit">Lisää tehtävä</button>
-      </form>
-
-        <ToDoList items={this.state.items} />
-
-        
-      </div>
+        <div className="container">
+          
+          <div className="todoListMain">
+            <div className="header"> 
+            <h1>ToDo-lista </h1>
+            </div>
+            <div className="todoForm">
+              <form onSubmit={this.addItem}>
+                <input
+                  value={newItem}
+                  onChange={this.handleInput} 
+                  />
+                <button type="submit">Lisää tehtävä</button>
+              </form>
+              </div>
+            <ToDoList items={this.state.items} />
+            </div>
+        </div>
+        </div>
     );
   }
 }

@@ -1,5 +1,70 @@
-h1 {
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  padding: 50px;
+  background-color: #9fa8a3;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.header {
+  width: 500px;
+}
+.header h1 {
   color: gray;
+  margin-left: 100px;
+}
+
+.todoListMain {
+  width: 500px;
+}
+.todoListMain .todoForm input {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #FFF;
+  width: 225px;
+  border-radius: 5px;
+}
+.todoListMain .todoForm button {
+  padding: 10px;
+  font-size: 16px;
+  margin: 10px;
+  margin-right: 0px;
+  border-radius: 5px;
+  background-color: #e3e0cf;
+  color: #333;
+  border: 2px solid #e3e0cf;
+}
+.todoListMain .todoForm button:hover {
+  background-color: #edd9c0;
+  border: 2px solid #edd9c0;
+  cursor: pointer;
+}
+.todoListMain .todoList {
+  list-style: none;
+  color: red;
+  padding-left: 0;
+  width: 250px;
+}
+.todoListMain .todoList li {
+  color: #333;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  list-style: none;
+  transition: background-color 1s ease-out;
+}
+.todoListMain .todoList li:hover {
+  background-color: #edd9c0;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=App.css.map */
