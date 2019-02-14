@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import ToDoItem from './ToDoItem';
+import { ToDo } from '../App';
+import { IState } from '../App';
+
+
+// const ToDoList: React.SFC<IState> = (props: any) => {
 
 const ToDoList = (props: any) => {
     const { items } = props;
@@ -12,7 +17,7 @@ const ToDoList = (props: any) => {
         return (
             <div>
                 <ul className="todoList">
-                    {items.map((item: string, index: number)  => <ToDoItem key={index} todo={item}/>)}
+                    {items.map((item: ToDo, index: number, content: string)  => <ToDoItem key={index} index={index} todo={item.content} onTodoClicked={props.onTodoClicked}/>)}
                     {/* {lista.map(item => <ToDoItem key={item.id} todo={item.content}/>)} */}
                 {/* <ToDoItem todo='Ensimmäinen homma'/> */}
                 </ul>
