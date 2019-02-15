@@ -49,22 +49,31 @@ body {
 }
 .todoListMain .todoList {
   list-style: none;
-  color: red;
   padding-left: 0;
   width: 250px;
 }
-.todoListMain .todoList li {
+.todoListMain .todoList .todo-item {
   color: #333;
   background-color: rgba(255, 255, 255, 0.5);
   padding: 15px;
   margin-bottom: 15px;
   border-radius: 5px;
-  list-style: none;
+  display: flex;
+  justify-content: space-between;
   transition: background-color 1s ease-out;
 }
-.todoListMain .todoList li:hover {
+.todoListMain .todoList .todo-item:hover {
   background-color: #edd9c0;
   cursor: pointer;
+}
+.todoListMain .todoList .todo-item .todo-item-text {
+  display: block;
+  width: 200px;
+}
+.todoListMain .todoList button.delete-btn {
+  margin-left: 10px;
+  border: none;
+  float: right;
 }
 
 /*# sourceMappingURL=App.css.map */

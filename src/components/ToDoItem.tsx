@@ -1,23 +1,28 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWindowClose } from '@fortawesome/free-solid-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core'
 
-const ToDoItem = (props: {todo: string, key: number, index: number, onTodoClicked: (todoId: number) => void })  => {
+library.add(faWindowClose);
 
-  
-    // const clickDone = () => {
-    //     // e.preventDefault();
-    //     console.log('clicked')
-    // }
-   
+const ToDoItem = (props: {todo: string, key: number, id: number, todoDone: boolean, onTodoClicked: (todoId: number) => void, onTodoDelete: (todoId: number) => void  })  => {
 
+const itemId = props.id;
+console.log('itemID', itemId );
 
-    
     return (
-        <li key={props.index}
-        onClick={() => props.onTodoClicked(props.index)} 
-        // style={{ textDecoration: `${todo.done ? 'line-through' : ''}, cursor: 'pointer` }}
-        className="todo-item">
-        {props.todo}
-        </li>
+        <div 
+            className="todo-item"
+            key={itemId}>
+            <div
+                className="todo-item-text"
+                onClick={() => props.onTodoClicked(itemId)} 
+                >
+                <span style={{ textDecoration: `${props.todoDone ? 'line-through' : ''}`}}
+                >{props.todo}</span>
+            </div>
+            <button className="delete-btn" onClick={(e)=> props.onTodoDelete(itemId)}> <FontAwesomeIcon icon={faWindowClose} size="2x" /> </button>
+        </div>
     );
 }
 
